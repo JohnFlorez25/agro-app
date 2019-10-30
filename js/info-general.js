@@ -7,10 +7,14 @@ $(document).ready(function() {
       document.getElementById('info_planta').innerHTML = ""
       document.getElementById('info_cuidado').innerHTML = ""
       document.getElementById('info_control').innerHTML = ""
-      for (var key in data.info_general) {
-        document.getElementById('info_planta').innerHTML +=
-        '<button type="button" class="btn btn-success m-3 col-md-2">'+key+'<span class="badge badge-pill badge-warning mx-1">'+data.info_general[key]+'</span>'+
-        '</button>';
+      var ban = true;
+        for (var key in data.info_general) {
+          if(ban===false){
+            document.getElementById('info_planta').innerHTML +=
+            '<button type="button" class="btn btn-success m-3 col-md-2">'+key+'<span class="badge badge-pill badge-warning mx-1">'+data.info_general[key]+'</span>'+
+            '</button>';
+          }
+          ban = false;
         };
       for (var key in data.variables_control) {
         document.getElementById('info_control').innerHTML +=

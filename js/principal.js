@@ -3,10 +3,14 @@ $(document).ready(function() {
         function(data) {
         console.log(data.info_general);
         document.getElementById('n_modulo').innerHTML = data.info_general.Nombre;
+        var ban = true;
         for (var key in data.info_general) {
-        document.getElementById('info_planta').innerHTML +=
-        '<button type="button" class="btn btn-success m-3 col-md-2">'+key+'<span class="badge badge-pill badge-warning mx-1">'+data.info_general[key]+'</span>'+
-        '</button>';
+          if(ban===false){
+            document.getElementById('info_planta').innerHTML +=
+            '<button type="button" class="btn btn-success m-3 col-md-2">'+key+'<span class="badge badge-pill badge-warning mx-1">'+data.info_general[key]+'</span>'+
+            '</button>';
+          }
+          ban = false;
         };
         for (var key in data.variables_control) {
           document.getElementById('info_control').innerHTML +=
